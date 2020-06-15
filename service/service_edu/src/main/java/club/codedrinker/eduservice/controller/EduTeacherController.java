@@ -84,7 +84,7 @@ public class EduTeacherController {
         if(!StringUtils.isEmpty(name)){
             wrapper.like("name",name);
         }
-        if(!StringUtils.isEmpty(name)){
+        if(!StringUtils.isEmpty(level)){
             wrapper.eq("level",level);
         }
         if(!StringUtils.isEmpty(begin)){
@@ -93,6 +93,7 @@ public class EduTeacherController {
         if(!StringUtils.isEmpty(end)){
             wrapper.le("gmt_create",end);
         }
+        wrapper.eq("is_deleted",0);
 
         eduTeacherService.page(pageTeacher, wrapper);
 

@@ -28,6 +28,7 @@ public class BannerFrontController {
     private CrmBannerService bannerService;
 
     //查询所有banner
+
     @GetMapping("getAllBanner")
     public R getAllBanner() {
         List<CrmBanner> list = bannerService.selectAllBanner();

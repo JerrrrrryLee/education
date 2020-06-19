@@ -5,6 +5,7 @@ import club.codedrinker.cmsservice.mapper.CrmBannerMapper;
 import club.codedrinker.cmsservice.service.CrmBannerService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.List;
  */
 @Service
 public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner> implements CrmBannerService {
+
+    @Cacheable(key = "'selectIndexList'", value = "banner")
     @Override
     public List<CrmBanner> selectAllBanner() {
         QueryWrapper<CrmBanner> wrapper = new QueryWrapper<>();

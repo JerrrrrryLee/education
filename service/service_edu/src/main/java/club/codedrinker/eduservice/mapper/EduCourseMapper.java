@@ -1,6 +1,7 @@
 package club.codedrinker.eduservice.mapper;
 
 import club.codedrinker.eduservice.entity.EduCourse;
+import club.codedrinker.eduservice.entity.frontvo.CourseWebVo;
 import club.codedrinker.eduservice.entity.vo.CoursePublishVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -15,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
     CoursePublishVo getPublishCourseInfo(String courseId);
+
+    CourseWebVo getBaseCourseInfo(String courseId);
 }

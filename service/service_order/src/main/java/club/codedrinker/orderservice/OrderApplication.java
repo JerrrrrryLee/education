@@ -1,4 +1,4 @@
-package club.codedrinker.ucenterservice;
+package club.codedrinker.orderservice;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -8,11 +8,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "club.codedrinker")
-@MapperScan("club.codedrinker.ucenterservice.mapper")
+@ComponentScan("club.codedrinker")
+@MapperScan("club.codedrinker.orderservice.mapper")
 @EnableDiscoveryClient
-public class UcenterApplication {
+@EnableFeignClients
+public class OrderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UcenterApplication.class,args);
+        SpringApplication.run(OrderApplication.class,args);
     }
 }

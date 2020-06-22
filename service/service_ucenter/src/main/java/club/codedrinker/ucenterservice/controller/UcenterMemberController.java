@@ -3,12 +3,15 @@ package club.codedrinker.ucenterservice.controller;
 
 import club.codedrinker.commomutils.JwtUtils;
 import club.codedrinker.commomutils.R;
+import club.codedrinker.commomutils.ordervo.UcenterMemberOrder;
 import club.codedrinker.ucenterservice.entity.UcenterMember;
 import club.codedrinker.ucenterservice.entity.vo.RegisterVo;
 import club.codedrinker.ucenterservice.service.UcenterMemberService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +63,14 @@ public class UcenterMemberController {
         UcenterMember member = memberService.getById(memberId);
         return R.ok().data("userInfo",member);
     }
-
+    //根据用户id获取用户信息
+    @PostMapping("getUserInfoOrder/{id}")
+    public UcenterMemberOrder getUserInfoOrder(@PathVariable String id) {
+        UcenterMember member = memberService.getById(id);
+        //把member对象里面值复制给UcenterMemberOrder对象
+        UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
+        BeanUtils.copyProperties(member,ucenterMemberOrder);
+        return ucenterMemberOrder;
+    }
 }
 

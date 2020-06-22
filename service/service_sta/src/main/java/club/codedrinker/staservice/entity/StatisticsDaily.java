@@ -1,4 +1,4 @@
-package club.codedrinker.cmsservice.entity;
+package club.codedrinker.staservice.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -15,38 +15,38 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 首页banner表
+ * 网站统计日数据
  * </p>
  *
  * @author testjava
- * @since 2020-06-17
+ * @since 2020-06-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="CrmBanner对象", description="首页banner表")
-public class CrmBanner implements Serializable {
+@ApiModel(value="StatisticsDaily对象", description="网站统计日数据")
+public class StatisticsDaily implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "ID")
+    @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
 
-    @ApiModelProperty(value = "标题")
-    private String title;
+    @ApiModelProperty(value = "统计日期")
+    private String dateCalculated;
 
-    @ApiModelProperty(value = "图片地址")
-    private String imageUrl;
+    @ApiModelProperty(value = "注册人数")
+    private Integer registerNum;
 
-    @ApiModelProperty(value = "链接地址")
-    private String linkUrl;
+    @ApiModelProperty(value = "登录人数")
+    private Integer loginNum;
 
-    @ApiModelProperty(value = "排序")
-    private Integer sort;
+    @ApiModelProperty(value = "每日播放视频数")
+    private Integer videoViewNum;
 
-    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
-    private Integer isDeleted;
+    @ApiModelProperty(value = "每日新增课程数")
+    private Integer courseNum;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
